@@ -5,13 +5,13 @@ import {MenuStack, PostStack} from './StackNavigation';
 import HomeScreen from '../screens/HomeScreen';
 import {tabScreenOptions} from './NavigationHelper';
 import NavigationNames from './NavigationNames';
+import Icon from 'react-native-vector-icons/Feather'; // Adjust based on your Icon library
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        ...tabScreenOptions({route}),
         tabBarActiveTintColor: '#FFAE36',
         tabBarInactiveTintColor: '#f3d9c9',
         tabBarStyle: {
@@ -25,6 +25,14 @@ const TabNavigator = () => {
       })}
       initialRouteName={NavigationNames.TabName.HomeTab}>
       <Tab.Screen
+        options={{
+          tabBarIcon: ({ color, size, focused, tintColor }: any) => {
+            return (
+              <Icon name="home" color="#F3C81DFF" size={20}/>
+            );
+          },
+          tabBarLabel: "Home"
+        }}
         name={NavigationNames.TabName.HomeTab}
         component={HomeScreen}
       />
