@@ -6,9 +6,14 @@ import HomeScreen from '../screens/HomeScreen';
 import {tabScreenOptions} from './NavigationHelper';
 import NavigationNames from './NavigationNames';
 import Icon from 'react-native-vector-icons/Feather'; // Adjust based on your Icon library
+import getStyles from '../styles/Styles';
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
+  const theme = 'light';
+  const Styles = getStyles(theme);
+  console.log('Styles----',Styles.TabNavigator?.primaryIconColor);
+  
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
