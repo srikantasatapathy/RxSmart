@@ -17,11 +17,11 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        tabBarActiveTintColor: '#FFAE36',
-        tabBarInactiveTintColor: '#f3d9c9',
+        tabBarActiveTintColor: Styles.TabNavigator?.primaryIconColor,
+        tabBarInactiveTintColor: Styles.TabNavigator?.secondaryColorIconColor,
         tabBarStyle: {
           backgroundColor: '#FFF',
-          borderTopColor: '#FFAE36',
+          borderTopColor: Styles.TabNavigator?.primaryIconColor,
           height: 60,
           paddingTop: 7,
         },
@@ -33,7 +33,7 @@ const TabNavigator = () => {
         options={{
           tabBarIcon: ({ color, size, focused, tintColor }: any) => {
             return (
-              <Icon name="home" color="#F3C81DFF" size={20}/>
+              <Icon name="home" color={Styles.TabNavigator?.activeIconColor} size={20}/>
             );
           },
           tabBarLabel: "Home"
@@ -42,10 +42,26 @@ const TabNavigator = () => {
         component={HomeScreen}
       />
       <Tab.Screen
+      options={{
+        tabBarIcon: ({ color, size, focused, tintColor }: any) => {
+          return (
+            <Icon name="calendar" color={Styles.TabNavigator?.activeIconColor} size={20}/>
+          );
+        },
+        tabBarLabel: "Post"
+      }}
         name={NavigationNames.TabName.PostTab}
         component={PostStack}
       />
       <Tab.Screen
+      options={{
+        tabBarIcon: ({ color, size, focused, tintColor }: any) => {
+          return (
+            <Icon name="menu" color={Styles.TabNavigator?.activeIconColor} size={20}/>
+          );
+        },
+        tabBarLabel: "Menu"
+      }}
         name={NavigationNames.TabName.MenuTab}
         component={MenuStack}
       />

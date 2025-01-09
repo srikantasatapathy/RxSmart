@@ -122,6 +122,7 @@ export const StylesAndroid = (value: any) => {
     TabNavigator: {
       primaryIconColor: '#FFAE36',
       secondaryColorIconColor: '#f3d9c9',
+      activeIconColor: '#F3C81DFF',
     },    
   };
 };
